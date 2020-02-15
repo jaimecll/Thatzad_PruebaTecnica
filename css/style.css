@@ -6,6 +6,7 @@ body{
 	background-position: center;
 	font-family: Muli;
 }
+/*css pagina inicial ordenado de elementos arriba a abajo*/
 body.Home{
 align-items: center;
 }
@@ -26,25 +27,9 @@ font-family: Muli;
 font-size: 18px;
 font-weight: 700;
 line-height: 24px;
-margin-top: 140px;
+margin-top: 120px;
 text-align: center;
 }
-
-div.CiudadElegida{
-width: 1114px;
-height: 530px;
-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-background-color: rgba(48, 108, 119, 0.7);
-}
-
-
-div.RankingCiudades{
-width: 418px;
-height: 530px;
-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-background-color: rgba(48, 108, 119, 0.7);
-}
-
 
 input.CodigoPostal{
 width: 527px;
@@ -62,14 +47,16 @@ font-size: 18px;
 font-weight: 400;
 }
 
-div.Buscar{
+
+/*div.Buscar{
 padding-top: 4px;
 width: 527px;
 height: 48px;
 box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 border-radius: 4px;
 background-color: #00bde0;
-}
+}*/
+
 button.Buscar{
 padding-top: 4px;
 width: 527px;
@@ -94,6 +81,9 @@ span.Lupa{
 	font-size: 0.6rem;
 }
 
+
+
+
 p.Texto2{
 text-align: center;
 margin-top: 140px;
@@ -105,3 +95,38 @@ font-size: 18px;
 font-weight: 700;
 line-height: 24px;
 }
+
+
+
+
+
+/*css pagina de temperatura*/
+
+div.columna1{
+width: 1114px;
+height: 530px;
+box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+background-color: rgba(48, 108, 119, 0.7);
+}
+div.columna2{
+margin-left: 30px;
+width: 418px;
+height: 530px;
+box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+background-color: rgba(48, 108, 119, 0.7);
+}
+p.Texto3{
+margin-left: 260px;
+margin-top: -10px;
+width: 310px;
+height: 29px;
+color: #ffffff;
+font-family: Muli;
+font-size: 28px;
+font-weight: 400;
+line-height: 12px;
+
+div.CiudadElegida{
+
+}
+div.RankingCiudades{
