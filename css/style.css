@@ -110,14 +110,37 @@ background-color: rgba(48, 108, 119, 0.7);
 }
 
 p.eleccion{
+width: 200px;
 height: 10px;
 color: #ffffff;
 font-family: Muli;
 font-size: 16px;
-font-weight: 400;
 line-height: 24px;
 }
-
+p.CodigoPostal{
+position: absolute;
+margin-left: 120px;
+margin-top: -27px;
+width: 300px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 20px;
+font-weight: 700;
+line-height: 24px;
+}
+p.nombre{
+position: absolute;
+margin-left: 70px;
+margin-top: -27px;
+width: 300px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 20px;
+font-weight: 700;
+line-height: 24px;
+}
 
 
 div.columna2{
@@ -164,7 +187,10 @@ font-weight: 300;
 line-height: 28px;
 }
 
-
+div.ranking{
+	position: absolute;
+	margin-top: 100px;
+}
 table.ranking{
 	margin-left: 10px;
 	position: absolute;
@@ -192,6 +218,7 @@ font-size: 48px;
 font-weight: 300;
 line-height: 48px;
 }
+
 td.datos{
 padding-top: 20px;
 padding-left: 50px;
@@ -211,9 +238,9 @@ tr.ranking{
 }
 
 td.ahora{
-
-padding-right: 50px;
-width: 100px;
+	padding-right: 40px;
+text-align: center;
+width: 200px;
 height: 24px;
 color: #ffffff;
 font-family: Muli;
@@ -243,5 +270,68 @@ color: #ffffff;
 font-family: Muli;
 font-size: 16px;
 font-weight: 400;
+line-height: 24px;
+}
+td.contenido-ahora{
+align-items: left;
+width: 100px;
+height: 240px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+border-right: #ffffff 1px solid;
+}
+
+td.contenido-horas{
+text-align: center;
+width: 430px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+border-right: #ffffff 1px solid;
+}
+
+td.contenido-dias{
+text-align: center;
+width: 300px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+}
+
+div.icono{
+	position: absolute;
+	padding-right: 500px;
+
+	width: 100px;
+	height: 100px;
+}
+div.temperatura{
+padding-top: 50px;
+padding-left: 100px;
+width: 77px;
+height: 86px;
+color: #ffffff;
+font-family: Muli;
+font-size: 58px;
+font-weight: 300;
+}
+div.tipo{
+position: absolute;
+padding-left: 100px;
+width: 200px;
+height: 24px;
+color: #ffffff;
+font-family: "Muli";
+font-size: 18px;
+font-weight: 700;
 line-height: 24px;
 }

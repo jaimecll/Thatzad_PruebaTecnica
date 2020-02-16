@@ -8,13 +8,35 @@ function inicializa_xhr() {
 		return new ActiveXObject("Microsoft.XMLHTTP"); 
 	} 
 }
+function objetoAjax(){
+	var xmlhttp=false;
+	try {
+		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+	} catch (e) {
+ 
+		try {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		} catch (E) {
+			xmlhttp = false;
+		}
+	}
+ 
+	if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+	  xmlhttp = new XMLHttpRequest();
+	}
+	return xmlhttp;
+}
+
+
+
 
 function comprobar() {
 	var city = document.getElementById("city").value;
+	var city2 = city+",ES";
 	peticion_http = inicializa_xhr();
 	if(peticion_http) {
 		peticion_http.onreadystatechange = procesaRespuesta;
-		peticion_http.open("GET", "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=57503d1ac0cd989b2bdf09e1bcd19c57&lang=es", true);
+		peticion_http.open("GET", "https://api.openweathermap.org/data/2.5/weather?q="+city2+"&units=metric&appid=57503d1ac0cd989b2bdf09e1bcd19c57&lang=es", true);
 		peticion_http.send();
 	}
 }
@@ -26,16 +48,106 @@ function procesaRespuesta() {
 			var login = document.getElementById("city").value;
 			var nombre=respuesta.name;
 			var temp=Math.round(respuesta.main.temp);
+			 var myIcon = respuesta.weather[0].icon;
 			console.log(respuesta);
 			if (respuesta.cod == "404") {
-				document.getElementById("disponibilidad").innerHTML = "No hemos encontrado el pais"+login;
+
+				document.getElementById("contenido-ahora").innerHTML = "No hemos encontrado la ciudad con código postal:"+city;
 			}else{
-			document.getElementById("temperatura").innerHTML = "El tiempo en "+nombre+" es de: "+temp+"º";
+				if (myIcon=="01n" || myIcon=="01d") {
+				document.getElementById("icono").innerHTML = "<i class='fas fa-sun fa-4x'></i>";
+				document.getElementById("tipo").innerHTML = "<bold>Soleado</bold>";
+
+			}else if(myIcon=="02n" || myIcon=="02d") {
+				document.getElementById("icono").innerHTML = "<i class='fas fa-cloud-sun fa-4x'></i>";
+				document.getElementById("tipo").innerHTML = "<bold>Nube y sol</bold>";
+
+			}else if(myIcon=="03n" || myIcon=="03d") {
+				document.getElementById("icono").innerHTML = "<i class='fas fa-cloud fa-4x'></i>";
+				document.getElementById("tipo").innerHTML = "<bold>Nube</bold>";
+
+			}else if(myIcon=="04n" || myIcon=="04d") {
+				document.getElementById("icono").innerHTML = "<i class='fas fa-cloud fa-4x'></i>";
+				document.getElementById("tipo").innerHTML = "<bold>Nube</bold>";
+
+			}else if(myIcon=="09n" || myIcon=="09d") {
+				document.getElementById("icono").innerHTML = "<i class='fas fa-cloud-rain fa-4x'></i>";
+				document.getElementById("tipo").innerHTML = "<bold>Lluvia</bold>";
+
+			}else if(myIcon=="10n" || myIcon=="10d") {
+				document.getElementById("icono").innerHTML = "<i class='fas fa-cloud-showers-heavy fa-4x'></i>";
+				document.getElementById("tipo").innerHTML = "<bold>Lluvia</bold>";
+
+			}else if(myIcon=="11n" || myIcon=="11d") {
+				document.getElementById("icono").innerHTML = "<i class='fas fa-bolt fa-4x'></i>";
+				document.getElementById("tipo").innerHTML = "<bold>Tormenta</bold>";
+
+			}else if(myIcon=="13n" || myIcon=="13d") {
+				document.getElementById("icono").innerHTML = "<i class='far fa-snowflake fa-4x'></i>";
+				document.getElementById("tipo").innerHTML = "<bold>Nieve</bold>";
+
+			}else if(myIcon=="50n" || myIcon=="50d") {
+				document.getElementById("icono").innerHTML = "<i class='fas fa-smog fa-4x'></i>";
+				document.getElementById("tipo").innerHTML = "<bold>Niebla</bold>";
+			}
+			var city = document.getElementById("city").value;
+			document.getElementById("temperatura").innerHTML = temp+"º";
+			document.getElementById("CP").innerHTML = city;
+			document.getElementById("nombre").innerHTML = nombre;
+			document.getElementById("valor_nombre").value = nombre;
+			document.getElementById("valor_temp").value = temp;
+			//document.getElementById("temperatura").innerHTML = "El tiempo en "+nombre+" es de: "+temp+"º<img src='"+myIcon+"'>";
+			InsertarCiudad();
 			}
 		}
 	}
 }
 
+function InsertarCiudad(){
+    var CodigoPostal = document.getElementById('city').value;
+    var Ciudad = document.getElementById('valor_nombre').value;
+    var Temperatura = document.getElementById('valor_temp').value;
+    var ajax2=objetoAjax();
+	ajax2.open("POST", "services/insertarCiudad.php", true);
+        ajax2.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        ajax2.send("CP="+CodigoPostal+"&Ciudad="+Ciudad+"&Temperatura="+Temperatura);
+}
+
+function Ranking(){
+ 
+    var ajax2=objetoAjax();
+	ajax2.open("POST", "services/ranking.php", true);
+        ajax2.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax2.send();
+	
+	ajax2.onreadystatechange=function() {
+		if (ajax2.readyState==4 && ajax2.status==200) {
+
+			var respuesta2=JSON.parse(this.responseText);
+			var tabla='<table>';
+			for(var i=0;i<respuesta2.length;i++) {
+				if(i==4){
+					tabla+= "<tr>";
+         		 tabla+="<td class='posicion'>"+(i+1)+".</td>";
+         		 tabla+="<td class='grados'>"+ respuesta2[i].UltTemp_ciudad+ "º</td>";
+          		tabla+="<td class='datos'><p>CP:"+ respuesta2[i].codigopostal_ciudad+ "</p><p>Ciudad:"+ respuesta2[i].nombre_ciudad+ "</p></td>";
+          		tabla+="</tr>";
+          		break;
+				}else{
+				tabla+= "<tr class='ranking'>";
+         		 tabla+="<td class='posicion'>"+(i+1)+".</td>";
+         		 tabla+="<td class='grados'>"+ respuesta2[i].UltTemp_ciudad+ "º</td>";
+          		tabla+="<td class='datos'><p>CP:"+ respuesta2[i].codigopostal_ciudad+ "</p><p>Ciudad:"+ respuesta2[i].nombre_ciudad+ "</p></td>";
+          		tabla+="</tr>";
+       	}
+		}
+		 
+		 document.getElementById('ranking').innerHTML=tabla;
+	}
+}
+}
+
 window.onload = function() {
 	comprobar();
+	Ranking();
 }

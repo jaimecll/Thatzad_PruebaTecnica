@@ -35,8 +35,8 @@
   <div class="columna1">
      <div class="d-flex justify-content-center" style="margin-top: 51px;">
        <div class="col-md-4" style="padding-left:200px;" >
-        <p class="eleccion" id="CodigoPostal">Código postal:</p>
-        <p class="eleccion" id="Ciudad">Ciudad:</p>
+        <p class="eleccion" id="CodigoPostal">Código postal:</p><p class="CodigoPostal" id="CP"></p>
+        <p class="eleccion" id="Ciudad">Ciudad: </p><p class="nombre" id="nombre"></p>
       </div>
       <div class="col-md-6">
         <form id='home' action='home.php' method='POST' accept-charset='UTF-8' onsubmit = "return ValidacionCP()">
@@ -54,9 +54,23 @@
             <td class="dias">Próximas 5 días</td>
           </tr>
           <tr>
-            <td class="ahora" id="temperatura"><input type="hidden" name="city" id="city" value="barcelona"></td>
-            <td class="horas">Próximas horas</td>
-            <td class="dias">Próximas 5 días</td>
+            <td class="contenido-ahora"> 
+
+              <div id="icono" class="icono"></div>
+              <div id="tipo" class="tipo"></div>
+              <div class="temperatura" id="temperatura"></div>
+
+              <input type="hidden" name="city" id="city" value="<?php
+                if(isset($_REQUEST['CodigoPostal'])){
+                echo $_REQUEST['CodigoPostal'];
+              }
+              ?>"> 
+              <input type="hidden" name="valor_nombre" id="valor_nombre" value=""> 
+              <input type="hidden" name="valor_temp" id="valor_temp" value="">
+            </td>
+
+            <td class="contenido-horas">Próximas horas</td>
+            <td class="contenido-dias">Próximas 5 días</td>
           </tr>
 
         </table>
@@ -80,36 +94,9 @@
 
 
 
-
-      <table class="ranking">
-
-        <tr class="ranking">
-          <td class="posicion">1.</td>
-          <td class="grados">-3º</td>
-          <td class="datos"><p>CP:</p><p>Ciudad:</p></td>
-        </tr>
-        <tr class="ranking">
-          <td class="posicion">2.</td>
-          <td class="grados">5º</td>
-          <td class="datos"><p>CP:</p><p>Ciudad:</p></td>
-        </tr>
-        <tr class="ranking">
-          <td class="posicion">3.</td>
-          <td class="grados">20º</td>
-          <td class="datos"><p>CP:</p><p>Ciudad:</p></td>
-        </tr>
-        <tr class="ranking">
-          <td class="posicion">4.</td>
-          <td class="grados">21º</td>
-          <td class="datos"><p>CP:</p><p>Ciudad:</p></td>
-        </tr>
-        <tr>
-          <td class="posicion">5.</td>
-          <td class="grados">23º</td>
-          <td class="datos"><p>CP:</p><p>Ciudad:</p></td>
-        </tr>
-      </table>
-
+<div id="ranking" class="ranking">
+      
+</div>
 
 
 
@@ -123,3 +110,15 @@
    
   </body>
 </html>
+
+<!--
+  <i class="fas fa-sun"></i>
+  <i class="fas fa-cloud-sun"></i>
+  <i class="fas fa-cloud"></i>
+  <i class="fas fa-cloud"></i>
+  <i class="fas fa-cloud-rain"></i>
+  <i class="fas fa-cloud-showers-heavy"></i>
+  <i class="fas fa-bolt"></i>
+  <i class="far fa-snowflake"></i>
+  <i class="fas fa-smog"></i>
+  -->
