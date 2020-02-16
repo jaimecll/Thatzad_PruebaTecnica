@@ -79,8 +79,8 @@ font-weight: 700;
 span.Lupa{
 	margin-left:170px;
 	font-size: 0.6rem;
+	color: #ffffff;
 }
-
 
 
 
@@ -108,6 +108,18 @@ height: 530px;
 box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 background-color: rgba(48, 108, 119, 0.7);
 }
+
+p.eleccion{
+height: 10px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+}
+
+
+
 div.columna2{
 margin-left: 30px;
 width: 418px;
@@ -115,6 +127,7 @@ height: 530px;
 box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 background-color: rgba(48, 108, 119, 0.7);
 }
+
 p.Texto3{
 margin-left: 260px;
 margin-top: -10px;
@@ -125,8 +138,110 @@ font-family: Muli;
 font-size: 28px;
 font-weight: 400;
 line-height: 12px;
-
-div.CiudadElegida{
-
 }
-div.RankingCiudades{
+
+input.Busqueda{
+margin-left: 14px;
+width: 114px;
+height: 21px;
+opacity: 0.7;
+color: #ffffff;
+font-family: Muli;
+font-size: 14px;
+font-weight: 300;
+border: 0px;
+background-color:rgba(48, 108, 119, 0.0);
+}
+
+p.ranking{
+text-align: center;
+width: 327px;
+height: 59px;
+color: #ffffff;
+font-family: Muli;
+font-size: 24px;
+font-weight: 300;
+line-height: 28px;
+}
+
+
+table.ranking{
+	margin-left: 10px;
+	position: absolute;
+	margin-top: 100px;
+}
+
+td.posicion{
+width: 10px;
+height: 29px;
+color: #ffffff;
+font-family: Muli;
+font-size: 24px;
+font-weight: 300;
+line-height: 24px;
+}
+
+td.grados{
+padding-left: 10px;
+text-align: right;
+width: 100px;
+height: 57px;
+color: #ffffff;
+font-family: Muli;
+font-size: 48px;
+font-weight: 300;
+line-height: 48px;
+}
+td.datos{
+padding-top: 20px;
+padding-left: 50px;
+width: 180px;
+height: 10px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 8px;
+}
+
+
+tr.ranking{
+	padding-top: 10px;
+	border-bottom: #ffffff 1px solid; 
+}
+
+td.ahora{
+
+padding-right: 50px;
+width: 100px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+border-right: #ffffff 1px solid;
+}
+
+td.horas{
+text-align: center;
+width: 430px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+border-right: #ffffff 1px solid;
+}
+
+td.dias{
+text-align: center;
+width: 300px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+}

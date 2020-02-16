@@ -14,6 +14,10 @@
     <title>Thatzad Weather</title>
   </head>
   <body>
+
+
+
+  	
   	<!--Columna central con bootstrap-->
   	<div class="d-flex justify-content-center">
   		<div class="d-flex flex-column">
