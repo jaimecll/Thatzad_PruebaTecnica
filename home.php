@@ -39,9 +39,9 @@
         <p class="eleccion" id="Ciudad">Ciudad: </p><p class="nombre" id="nombre"></p>
       </div>
       <div class="col-md-6">
-        <form id='home' action='home.php' method='POST' accept-charset='UTF-8' onsubmit = "return ValidacionCP()">
+        <form id='home' name='home' action='home.php' method='POST' accept-charset='UTF-8' onsubmit = "return ValidacionCP()">
           
-  <div class="p-2"> <span class="Lupa"><i class="fas fa-search-location fa-4x"></i></span><input class="Busqueda" type="text" name="Busqueda" placeholder="Buscar otra zona">
+  <div class="p-2"> <a href="#" onClick="home.submit()"><span class="Lupa"><i class="fas fa-search-location fa-4x"></i></span></a><input class="Busqueda" type="text" name="CodigoPostal" placeholder="Buscar otra zona">
 </div>
          
         </form>
@@ -69,8 +69,121 @@
               <input type="hidden" name="valor_temp" id="valor_temp" value="">
             </td>
 
-            <td class="contenido-horas">Próximas horas</td>
-            <td class="contenido-dias">Próximas 5 días</td>
+            <td class="contenido-horas">
+              <table>
+                <tr>
+                  <td class="tabla-horas">Ahora</td>
+                  <td class="tabla-horas">18:00</td>
+                  <td class="tabla-horas">19:00</td>
+                  <td class="tabla-horas2">20:00</td>
+                </tr>
+                <tr style="height: 70px;">
+                  <td class="tabla-horas"><i class="far fa-snowflake fa-2x"></i></td>
+                  <td class="tabla-horas"> <i class="far fa-snowflake fa-2x"></i></td>
+                  <td class="tabla-horas"><i class="far fa-snowflake fa-2x"></i></td>
+                  <td class="tabla-horas2"><i class="far fa-snowflake fa-2x"></i></td>
+                </tr>
+                <tr>
+                  <td class="tabla-horas">Nieve</td>
+                  <td class="tabla-horas"> Nieve</td>
+                  <td class="tabla-horas">Nieve</td>
+                  <td class="tabla-horas2">Nieve</td>
+                </tr>
+                <tr>
+                  <td class="tabla-horas" style="font-size:18px;">-3º</td>
+                  <td class="tabla-horas" style="font-size:18px;">-3º</td>
+                  <td class="tabla-horas" style="font-size:18px;">-3º</td>
+                  <td class="tabla-horas2" style="font-size:18px;">-3º</td>
+                </tr>
+              
+            </table>
+          </td>
+            <td class="contenido-dias">
+              <div class="slider">
+            <ul>
+            <li>
+          <table>
+                <tr>
+                  <td class="tabla-horas">Ahora</td>
+                </tr>
+                <tr style="height: 70px;">
+                  <td class="tabla-horas"><i class="far fa-snowflake fa-2x"></i></td> 
+                </tr>
+                <tr>
+                  <td class="tabla-horas">Nieve</td>
+                </tr>
+                <tr>
+                  <td class="tabla-horas" style="font-size:18px;">-3º</td>
+                </tr>
+            </table>
+          </li>
+          <li>
+        <table>
+                <tr>
+                  <td class="tabla-horas">Ahora</td>
+                </tr>
+                <tr style="height: 70px;">
+                  <td class="tabla-horas"><i class="far fa-snowflake fa-2x"></i></td>
+                </tr>
+                <tr>
+                  <td class="tabla-horas">Nieve</td>
+                </tr>
+                <tr>
+                  <td class="tabla-horas" style="font-size:18px;">-3º</td>
+                </tr>
+            </table>
+          </li>
+          <li>
+        <table>
+                <tr>
+                  <td class="tabla-horas">Ahora</td> 
+                </tr>
+                <tr style="height: 70px;">
+                  <td class="tabla-horas"><i class="far fa-snowflake fa-2x"></i></td> 
+                </tr>
+                <tr>
+                  <td class="tabla-horas">Nieve</td>
+                </tr>
+                <tr>
+                  <td class="tabla-horas" style="font-size:18px;">-3º</td>
+                </tr>
+            </table>
+          </li>
+         <li>
+        <table>
+                <tr>
+                  <td class="tabla-horas">Ahora</td>
+                </tr>
+                <tr style="height: 70px;">
+                  <td class="tabla-horas"><i class="far fa-snowflake fa-2x"></i></td>
+                </tr>
+                <tr>
+                  <td class="tabla-horas">Nieve</td>
+                </tr>
+                <tr>
+                  <td class="tabla-horas" style="font-size:18px;">-3º</td>
+                </tr>
+            </table>
+          </li>
+          <li>
+        <table>
+                <tr>
+                  <td class="tabla-horas2">Ahora</td>
+                </tr>
+                <tr style="height: 70px;">
+                  <td class="tabla-horas2"><i class="far fa-snowflake fa-2x"></i></td>
+                </tr>
+                <tr>
+                  <td class="tabla-horas2">Nieve</td>
+                </tr>
+                <tr>
+                  <td class="tabla-horas2" style="font-size:18px;">-3º</td>
+                </tr>
+            </table>
+          </li>
+      </ul>
+    </div>
+            </td>
           </tr>
 
         </table>

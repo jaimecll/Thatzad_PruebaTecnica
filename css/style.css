@@ -335,3 +335,62 @@ font-size: 18px;
 font-weight: 700;
 line-height: 24px;
 }
+td.tabla-horas{
+text-align: center;
+width: 120px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+border-right:white 1px solid;
+}
+td.tabla-horas2{
+text-align: center;
+width: 120px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+}
+
+
+
+
+
+
+
+
+.slider {
+	width: 95%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.slider ul {
+	display: flex;
+	padding: 0;
+	width: 120%;
+	
+	animation: cambio 10s infinite alternate linear;
+}
+
+.slider li {
+	width: 80%;
+	list-style: none;
+}
+
+
+@keyframes cambio {
+	0% {margin-left: 0;}
+	80% {margin-left: 0;}
+	
+	20% {margin-left: -20%;}
+	100% {margin-left: -20%;}
+
+	
+}
+
