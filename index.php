@@ -32,7 +32,7 @@
 
   			<!--Formulario para introducir codigo postal-->
   			<form id='inicio' action='home.php' method='POST' accept-charset='UTF-8' onsubmit = "return ValidacionCP()">
-  			<div class="p-2"><input type="text" class="CodigoPostal" name="CodigoPostal" id="CodigoPostal" placeholder="Introduce el código postal"></div>
+  			<div class="p-2"><input type="text" class="CodigoPostal" name="CodigoPostal" id="CodigoPostal" placeholder="Introduce el código postal"  pattern="[0-9]{5}"></div>
   			<!--<div class="p-2"><div class="Buscar" onclick=""><p class="TextoBoton">Buscar<span class="Lupa"><i class="fas fa-search-location fa-4x"></i></span></p></div></div>-->
   			<div class="p-2"><button class="Buscar" type="submit" name="eviar"><p class="TextoBoton">Buscar<span class="Lupa"><i class="fas fa-search-location fa-4x"></i></span></p></button></div>
   			</form>

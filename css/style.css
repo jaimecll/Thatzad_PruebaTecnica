@@ -101,14 +101,23 @@ line-height: 24px;
 
 
 /*css pagina de temperatura*/
-
+/*Las dos cajas, ranking y datos*/
 div.columna1{
 width: 1114px;
 height: 530px;
 box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 background-color: rgba(48, 108, 119, 0.7);
 }
+div.columna2{
+margin-left: 30px;
+width: 418px;
+height: 530px;
+box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+background-color: rgba(48, 108, 119, 0.7);
+}
 
+
+/*Datos de busqueda*/
 p.eleccion{
 width: 200px;
 height: 10px;
@@ -143,13 +152,7 @@ line-height: 24px;
 }
 
 
-div.columna2{
-margin-left: 30px;
-width: 418px;
-height: 530px;
-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-background-color: rgba(48, 108, 119, 0.7);
-}
+
 
 p.Texto3{
 margin-left: 260px;
@@ -175,6 +178,12 @@ font-weight: 300;
 border: 0px;
 background-color:rgba(48, 108, 119, 0.0);
 }
+
+
+
+
+
+/*Ranking*/
 
 p.ranking{
 text-align: center;
@@ -237,8 +246,18 @@ tr.ranking{
 	border-bottom: #ffffff 1px solid; 
 }
 
+
+
+
+
+
+
+
+
+
+/*Datos actuales*/
 td.ahora{
-	padding-right: 40px;
+padding-right: 40px;
 text-align: center;
 width: 200px;
 height: 24px;
@@ -250,28 +269,6 @@ line-height: 24px;
 border-right: #ffffff 1px solid;
 }
 
-td.horas{
-text-align: center;
-width: 430px;
-height: 24px;
-color: #ffffff;
-font-family: Muli;
-font-size: 16px;
-font-weight: 400;
-line-height: 24px;
-border-right: #ffffff 1px solid;
-}
-
-td.dias{
-text-align: center;
-width: 300px;
-height: 24px;
-color: #ffffff;
-font-family: Muli;
-font-size: 16px;
-font-weight: 400;
-line-height: 24px;
-}
 td.contenido-ahora{
 align-items: left;
 width: 100px;
@@ -283,36 +280,11 @@ font-weight: 400;
 line-height: 24px;
 border-right: #ffffff 1px solid;
 }
-
-td.contenido-horas{
-text-align: center;
-width: 430px;
-height: 24px;
-color: #ffffff;
-font-family: Muli;
-font-size: 16px;
-font-weight: 400;
-line-height: 24px;
-border-right: #ffffff 1px solid;
-}
-
-td.contenido-dias{
-text-align: center;
-width: 300px;
-height: 24px;
-color: #ffffff;
-font-family: Muli;
-font-size: 16px;
-font-weight: 400;
-line-height: 24px;
-}
-
 div.icono{
-	position: absolute;
-	padding-right: 500px;
-
-	width: 100px;
-	height: 100px;
+position: absolute;
+padding-right: 500px;
+width: 100px;
+height: 100px;
 }
 div.temperatura{
 padding-top: 50px;
@@ -335,6 +307,57 @@ font-size: 18px;
 font-weight: 700;
 line-height: 24px;
 }
+
+
+
+/*tablas de horas y dias*/
+
+td.dias{
+text-align: center;
+width: 300px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+}
+
+td.horas{
+text-align: center;
+width: 430px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+border-right: #ffffff 1px solid;
+}
+
+td.contenido-dias{
+text-align: center;
+width: 300px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+}
+
+td.contenido-horas{
+text-align: center;
+width: 430px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+border-right: #ffffff 1px solid;
+}
+
 td.tabla-horas{
 text-align: center;
 width: 120px;
@@ -362,20 +385,23 @@ line-height: 24px;
 
 
 
-
+/*Slider de proximos dias*/
 
 .slider {
-	width: 95%;
+
+	width: 399px;
 	margin: auto;
 	overflow: hidden;
+background-color: #306c77;
+background-opacity: 0.5;
 }
 
 .slider ul {
 	display: flex;
-	padding: 0;
+	padding-top: 20px;
 	width: 120%;
 	
-	animation: cambio 10s infinite alternate linear;
+	animation: cambio 15s infinite alternate linear;
 }
 
 .slider li {
@@ -385,11 +411,11 @@ line-height: 24px;
 
 
 @keyframes cambio {
-	0% {margin-left: 0;}
-	80% {margin-left: 0;}
+	0% {margin-left: -10%;}
+	80% {margin-left: -10%;}
 	
-	20% {margin-left: -20%;}
-	100% {margin-left: -20%;}
+	20% {margin-left: -23%;}
+	100% {margin-left: -23%;}
 
 	
 }

@@ -28,6 +28,12 @@ function objetoAjax(){
 }
 
 
+//al cargar la pagina se ejecuta la funcion para crear el ranking y comprobar la ciudad introducida
+window.onload = function() {
+	comprobar();
+	Ranking();
+}
+
 
 
 function comprobar() {
@@ -40,19 +46,57 @@ function comprobar() {
 		peticion_http.send();
 	}
 }
+//creacion tabla del ranking
+function Ranking(){
+ 
+    var ajax2=objetoAjax();
+	ajax2.open("POST", "services/ranking.php", true);
+        ajax2.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax2.send();
+	
+	ajax2.onreadystatechange=function() {
+		if (ajax2.readyState==4 && ajax2.status==200) {
 
+			var respuesta2=JSON.parse(this.responseText);
+			var tabla='<table>';
+			for(var i=0;i<respuesta2.length;i++) {
+				if(i==4){
+					tabla+= "<tr>";
+         		 tabla+="<td class='posicion'>"+(i+1)+".</td>";
+         		 tabla+="<td class='grados'>"+ respuesta2[i].UltTemp_ciudad+ "º</td>";
+          		tabla+="<td class='datos'><p>CP:"+ respuesta2[i].codigopostal_ciudad+ "</p><p>Ciudad:"+ respuesta2[i].nombre_ciudad+ "</p></td>";
+          		tabla+="</tr>";
+          		break;
+				}else{
+				tabla+= "<tr class='ranking'>";
+         		 tabla+="<td class='posicion'>"+(i+1)+".</td>";
+         		 tabla+="<td class='grados'>"+ respuesta2[i].UltTemp_ciudad+ "º</td>";
+          		tabla+="<td class='datos'><p>CP:"+ respuesta2[i].codigopostal_ciudad+ "</p><p>Ciudad:"+ respuesta2[i].nombre_ciudad+ "</p></td>";
+          		tabla+="</tr>";
+       	}
+		}
+		 
+		 document.getElementById('ranking').innerHTML=tabla;
+	}
+}
+}
+//Creacion de la tabla de datos actuales
 function procesaRespuesta() {
 	if(peticion_http.readyState == READY_STATE_COMPLETE) {
 		if (peticion_http.status == 200) {
+
 			var respuesta=JSON.parse(peticion_http.responseText);
 			var login = document.getElementById("city").value;
 			var nombre=respuesta.name;
 			var temp=Math.round(respuesta.main.temp);
-			 var myIcon = respuesta.weather[0].icon;
+			var myIcon = respuesta.weather[0].icon;
 			console.log(respuesta);
 			if (respuesta.cod == "404") {
 
 				document.getElementById("contenido-ahora").innerHTML = "No hemos encontrado la ciudad con código postal:"+city;
+				  
+
+
 			}else{
 				if (myIcon=="01n" || myIcon=="01d") {
 				document.getElementById("icono").innerHTML = "<i class='fas fa-sun fa-4x'></i>";
@@ -100,9 +144,13 @@ function procesaRespuesta() {
 			InsertarCiudad();
 			}
 		}
+	}else{
+		document.getElementById("CP").innerHTML = "No encontrado";
+			document.getElementById("nombre").innerHTML = "No encontrado";
 	}
 }
 
+//Insercion en la base de datos mediante ajax
 function InsertarCiudad(){
     var CodigoPostal = document.getElementById('city').value;
     var Ciudad = document.getElementById('valor_nombre').value;
@@ -113,41 +161,6 @@ function InsertarCiudad(){
         ajax2.send("CP="+CodigoPostal+"&Ciudad="+Ciudad+"&Temperatura="+Temperatura);
 }
 
-function Ranking(){
- 
-    var ajax2=objetoAjax();
-	ajax2.open("POST", "services/ranking.php", true);
-        ajax2.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-		ajax2.send();
-	
-	ajax2.onreadystatechange=function() {
-		if (ajax2.readyState==4 && ajax2.status==200) {
 
-			var respuesta2=JSON.parse(this.responseText);
-			var tabla='<table>';
-			for(var i=0;i<respuesta2.length;i++) {
-				if(i==4){
-					tabla+= "<tr>";
-         		 tabla+="<td class='posicion'>"+(i+1)+".</td>";
-         		 tabla+="<td class='grados'>"+ respuesta2[i].UltTemp_ciudad+ "º</td>";
-          		tabla+="<td class='datos'><p>CP:"+ respuesta2[i].codigopostal_ciudad+ "</p><p>Ciudad:"+ respuesta2[i].nombre_ciudad+ "</p></td>";
-          		tabla+="</tr>";
-          		break;
-				}else{
-				tabla+= "<tr class='ranking'>";
-         		 tabla+="<td class='posicion'>"+(i+1)+".</td>";
-         		 tabla+="<td class='grados'>"+ respuesta2[i].UltTemp_ciudad+ "º</td>";
-          		tabla+="<td class='datos'><p>CP:"+ respuesta2[i].codigopostal_ciudad+ "</p><p>Ciudad:"+ respuesta2[i].nombre_ciudad+ "</p></td>";
-          		tabla+="</tr>";
-       	}
-		}
-		 
-		 document.getElementById('ranking').innerHTML=tabla;
-	}
-}
-}
 
-window.onload = function() {
-	comprobar();
-	Ranking();
-}
+

@@ -17,7 +17,10 @@
   <body>
 
 
+<?php
+if(isset($_REQUEST['CodigoPostal'])){
 
+?>
 
 
 <div class="d-flex justify-content-center">
@@ -33,20 +36,25 @@
 
 
   <div class="columna1">
+    <!--Parte de datos de ciudad dividida en dos columnas, datos y busqueda-->
      <div class="d-flex justify-content-center" style="margin-top: 51px;">
        <div class="col-md-4" style="padding-left:200px;" >
         <p class="eleccion" id="CodigoPostal">Código postal:</p><p class="CodigoPostal" id="CP"></p>
         <p class="eleccion" id="Ciudad">Ciudad: </p><p class="nombre" id="nombre"></p>
       </div>
       <div class="col-md-6">
+
+        <!--Formulario para volver a buscar-->
         <form id='home' name='home' action='home.php' method='POST' accept-charset='UTF-8' onsubmit = "return ValidacionCP()">
           
-  <div class="p-2"> <a href="#" onClick="home.submit()"><span class="Lupa"><i class="fas fa-search-location fa-4x"></i></span></a><input class="Busqueda" type="text" name="CodigoPostal" placeholder="Buscar otra zona">
+  <div class="p-2"> <!--<a href="#" onClick="home.submit()">--><span class="Lupa"><i class="fas fa-search-location fa-4x"></i></span><!--</a>--><input class="Busqueda" type="text" name="CodigoPostal" placeholder="Buscar otra zona" pattern="[0-9]{5}">
 </div>
          
         </form>
       </div>
 
+
+      <!--tablas de datos recogido de openweathermap-->
         <table class="ranking">
           <tr>
             <td class="ahora">Ahora</td>
@@ -54,6 +62,11 @@
             <td class="dias">Próximas 5 días</td>
           </tr>
           <tr>
+
+
+
+
+            <!--Tabla de datos actuales-->
             <td class="contenido-ahora"> 
 
               <div id="icono" class="icono"></div>
@@ -69,6 +82,10 @@
               <input type="hidden" name="valor_temp" id="valor_temp" value="">
             </td>
 
+
+
+
+        <!--Tabla de datos en unas horas-->
             <td class="contenido-horas">
               <table>
                 <tr>
@@ -98,6 +115,9 @@
               
             </table>
           </td>
+
+
+          <!--Tabla contenido de los proximos dias y su slider-->
             <td class="contenido-dias">
               <div class="slider">
             <ul>
@@ -120,7 +140,7 @@
           <li>
         <table>
                 <tr>
-                  <td class="tabla-horas">Ahora</td>
+                  <td class="tabla-horas">Miercoles</td>
                 </tr>
                 <tr style="height: 70px;">
                   <td class="tabla-horas"><i class="far fa-snowflake fa-2x"></i></td>
@@ -136,7 +156,7 @@
           <li>
         <table>
                 <tr>
-                  <td class="tabla-horas">Ahora</td> 
+                  <td class="tabla-horas">Jueves</td> 
                 </tr>
                 <tr style="height: 70px;">
                   <td class="tabla-horas"><i class="far fa-snowflake fa-2x"></i></td> 
@@ -152,7 +172,7 @@
          <li>
         <table>
                 <tr>
-                  <td class="tabla-horas">Ahora</td>
+                  <td class="tabla-horas">Viernes</td>
                 </tr>
                 <tr style="height: 70px;">
                   <td class="tabla-horas"><i class="far fa-snowflake fa-2x"></i></td>
@@ -168,7 +188,7 @@
           <li>
         <table>
                 <tr>
-                  <td class="tabla-horas2">Ahora</td>
+                  <td class="tabla-horas2">Sabado</td>
                 </tr>
                 <tr style="height: 70px;">
                   <td class="tabla-horas2"><i class="far fa-snowflake fa-2x"></i></td>
@@ -199,19 +219,12 @@
 
 
 
-
+<!--div del ranking(tabla en ajax.js)-->
   <div class="columna2">
     <div class="d-flex justify-content-center" style="margin-top: 51px;">
       <div class="p-2" ><p class="ranking">Top 5 de las zonas más frías según tus búsquedas</p></div>
 
-
-
-
-<div id="ranking" class="ranking">
-      
-</div>
-
-
+<div id="ranking" class="ranking"></div>
 
     </div>
   </div>
@@ -224,14 +237,7 @@
   </body>
 </html>
 
-<!--
-  <i class="fas fa-sun"></i>
-  <i class="fas fa-cloud-sun"></i>
-  <i class="fas fa-cloud"></i>
-  <i class="fas fa-cloud"></i>
-  <i class="fas fa-cloud-rain"></i>
-  <i class="fas fa-cloud-showers-heavy"></i>
-  <i class="fas fa-bolt"></i>
-  <i class="far fa-snowflake"></i>
-  <i class="fas fa-smog"></i>
-  -->
+<?php 
+}else{
+  header("Location:index.php");
+}

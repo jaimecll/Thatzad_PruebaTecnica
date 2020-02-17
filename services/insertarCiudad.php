@@ -14,7 +14,7 @@
           $insertar=1;
           if($row['UltTemp_ciudad']>$temperatura){
             $delete =mysqli_query($conn, "DELETE from ciudad where id_ciudad=".$row['id_ciudad']."");
-            $consulta="INSERT INTO `ciudad`(`nombre_ciudad`, `CodigoPostal_ciudad`, `UltTemp_ciudad`) VALUES ('$ciudad',$codigoPostal,'$temperatura')";
+            $consulta="INSERT INTO `ciudad`(`nombre_ciudad`, `CodigoPostal_ciudad`, `UltTemp_ciudad`) VALUES ('$ciudad','$codigoPostal','$temperatura')";
         $sql= mysqli_query($conn, $consulta);
           }
           
@@ -22,7 +22,7 @@
       
     }
     if ($insertar==0) {
-     $consulta="INSERT INTO `ciudad`(`nombre_ciudad`, `CodigoPostal_ciudad`, `UltTemp_ciudad`) VALUES ('$ciudad',$codigoPostal,'$temperatura')";
+     $consulta="INSERT INTO `ciudad`(`nombre_ciudad`, `CodigoPostal_ciudad`, `UltTemp_ciudad`) VALUES ('$ciudad','$codigoPostal','$temperatura')";
         $sql= mysqli_query($conn, $consulta);
     }
   
