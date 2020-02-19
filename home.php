@@ -49,7 +49,7 @@ if(isset($_REQUEST['CodigoPostal'])){
           
   <div class="p-2"> <!--<a href="#" onClick="home.submit()">--><span class="Lupa"><i class="fas fa-search-location fa-4x"></i></span><!--</a>--><input class="Busqueda" type="text" name="CodigoPostal" id="city" placeholder="Buscar otra zona" pattern="[0-9]{5}" value="<?php echo $_REQUEST['CodigoPostal']?>">
 </div>
-         
+         <input type="hidden" value="" id="bdCP">
         </form>
       </div>
 
@@ -95,22 +95,22 @@ if(isset($_REQUEST['CodigoPostal'])){
                   <td class="tabla-horas2">20:00</td>
                 </tr>
                 <tr style="height: 70px;">
-                  <td class="tabla-horas"><i class="far fa-snowflake fa-2x"></i></td>
-                  <td class="tabla-horas"> <i class="far fa-snowflake fa-2x"></i></td>
-                  <td class="tabla-horas"><i class="far fa-snowflake fa-2x"></i></td>
-                  <td class="tabla-horas2"><i class="far fa-snowflake fa-2x"></i></td>
+                  <td class="tabla-horas" id="icono"><i class="far fa-snowflake fa-2x"></i></td>
+                  <td class="tabla-horas" id="iconoh0"> <i class="far fa-snowflake fa-2x"></i></td>
+                  <td class="tabla-horas" id="iconoh1"><i class="far fa-snowflake fa-2x"></i></td>
+                  <td class="tabla-horas2" id="iconoh2"><i class="far fa-snowflake fa-2x"></i></td>
                 </tr>
                 <tr>
-                  <td class="tabla-horas">Nieve</td>
-                  <td class="tabla-horas"> Nieve</td>
-                  <td class="tabla-horas">Nieve</td>
-                  <td class="tabla-horas2">Nieve</td>
+                  <td class="tabla-horas" id="tipo">Nieve</td>
+                  <td class="tabla-horas" id="tipoh0"> Nieve</td>
+                  <td class="tabla-horas" id="tipoh1">Nieve</td>
+                  <td class="tabla-horas2" id="tipoh2">Nieve</td>
                 </tr>
                 <tr>
-                  <td class="tabla-horas" style="font-size:18px;">-3º</td>
-                  <td class="tabla-horas" style="font-size:18px;">-3º</td>
-                  <td class="tabla-horas" style="font-size:18px;">-3º</td>
-                  <td class="tabla-horas2" style="font-size:18px;">-3º</td>
+                  <td class="tabla-horas" style="font-size:18px;" id="temperatura">-3º</td>
+                  <td class="tabla-horas" style="font-size:18px;" id="temperaturah0">-3º</td>
+                  <td class="tabla-horas" style="font-size:18px;"id="temperaturah1">-3º</td>
+                  <td class="tabla-horas2" style="font-size:18px;" id="temperaturah2">-3º</td>
                 </tr>
               
             </table>
