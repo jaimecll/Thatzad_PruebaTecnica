@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-02-2020 a las 09:05:43
+-- Tiempo de generación: 16-02-2020 a las 23:07:50
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -31,8 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `ciudad` (
   `id_ciudad` int(3) NOT NULL,
   `nombre_ciudad` varchar(30) NOT NULL,
-  `codigopostal_ciudad` varchar(10) NOT NULL,
-  `UltTemp_ciudad` int(5) NOT NULL
+  `codigopostal_ciudad` int(10) NOT NULL,
+  `UltTemp_ciudad` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -40,16 +40,14 @@ CREATE TABLE `ciudad` (
 --
 
 INSERT INTO `ciudad` (`id_ciudad`, `nombre_ciudad`, `codigopostal_ciudad`, `UltTemp_ciudad`) VALUES
-(14, 'Barakaldo', '39011', 20),
-(17, 'Lugo', '27001', 14),
-(18, 'Ciudad Real', '13001', 14),
-(19, 'Cáceres', '10001', 12),
-(20, 'Ourense', '15001', 13),
-(22, 'Toledo', '45001', 11),
-(27, 'Soria', '42004', 9),
-(29, 'Alicante/Alacant', '03001', 15),
-(38, 'Badalona', '08902', 7),
-(39, 'Tarragona', '43004', 7);
+(14, 'Barakaldo', 39011, '20'),
+(16, 'Tarragona', 43004, '13'),
+(17, 'Lugo', 27001, '14'),
+(18, 'Ciudad Real', 13001, '14'),
+(19, 'Cáceres', 10001, '12'),
+(20, 'Ourense', 15001, '13'),
+(22, 'Toledo', 45001, '11'),
+(23, 'Badalona', 8902, '12');
 
 --
 -- Índices para tablas volcadas
@@ -69,7 +67,7 @@ ALTER TABLE `ciudad`
 -- AUTO_INCREMENT de la tabla `ciudad`
 --
 ALTER TABLE `ciudad`
-  MODIFY `id_ciudad` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_ciudad` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

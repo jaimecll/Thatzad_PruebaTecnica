@@ -85,10 +85,11 @@ function Ranking(){
 function procesaRespuesta() {
 	if(peticion_http.readyState == READY_STATE_COMPLETE) {
 		if (peticion_http.status == 200) {
-
+			
 			var respuesta=JSON.parse(peticion_http.responseText);
 			
-
+			
+			
 			var login = document.getElementById("city").value;
 			var nombre=respuesta.name;
 			var temp=Math.round(respuesta.main.temp);
