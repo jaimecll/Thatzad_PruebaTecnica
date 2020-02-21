@@ -42,10 +42,11 @@ function comprobar() {
 	peticion_http = inicializa_xhr();
 	if(peticion_http) {
 		peticion_http.onreadystatechange = procesaRespuesta;
-		peticion_http.open("GET", "https://api.openweathermap.org/data/2.5/weather?q="+city2+"&units=metric&appid=57503d1ac0cd989b2bdf09e1bcd19c57&cnt=5&lang=es", true);
+		peticion_http.open("GET", "https://api.openweathermap.org/data/2.5/weather?q="+city2+"&units=metric&cnt=1&appid=57503d1ac0cd989b2bdf09e1bcd19c57&cnt=7&lang=es", true);
 		peticion_http.send();
 	}
 }
+
 //creacion tabla del ranking
 function Ranking(){
  
@@ -84,9 +85,11 @@ function Ranking(){
 function procesaRespuesta() {
 	if(peticion_http.readyState == READY_STATE_COMPLETE) {
 		if (peticion_http.status == 200) {
-
+			
 			var respuesta=JSON.parse(peticion_http.responseText);
-
+			
+			
+			
 			var login = document.getElementById("city").value;
 			var nombre=respuesta.name;
 			var temp=Math.round(respuesta.main.temp);
@@ -139,6 +142,7 @@ function procesaRespuesta() {
 			var city = document.getElementById("city").value;
 			document.getElementById("city").value="";
 			document.getElementById("temperatura").innerHTML = temp+"º";
+			document.getElementById("bdCP").value = city;
 			document.getElementById("CP").innerHTML = city;
 			document.getElementById("nombre").innerHTML = nombre;
 			document.getElementById("valor_nombre").value = nombre;
@@ -214,7 +218,8 @@ if (myIcon=="01n" || myIcon=="01d") {
 
 //Insercion en la base de datos mediante ajax
 function InsertarCiudad(){
-    var CodigoPostal = document.getElementById('city').value;
+
+    var CodigoPostal = document.getElementById('bdCP').value;
     var Ciudad = document.getElementById('valor_nombre').value;
     var Temperatura = document.getElementById('valor_temp').value;
     var ajax2=objetoAjax();
