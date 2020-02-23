@@ -55,18 +55,10 @@ if(isset($_REQUEST['CodigoPostal'])){
 
 
       <!--tablas de datos recogido de openweathermap-->
-        <table class="ranking">
-          <tr>
-            <td class="ahora">Ahora</td>
-            <td class="horas">Próximas horas</td>
-            <td class="dias">Próximas 5 días</td>
-          </tr>
-          <tr>
-
-
-
-
-            <!--Tabla de datos actuales-->
+        <div class="ranking">
+          
+          <div class="ahora"><p class="tiempo">Ahora</p>
+            <table>
             <td class="contenido-ahora"> 
 
               <div id="icono" class="icono"></div>
@@ -81,13 +73,13 @@ if(isset($_REQUEST['CodigoPostal'])){
               <input type="hidden" name="valor_nombre" id="valor_nombre" value=""> 
               <input type="hidden" name="valor_temp" id="valor_temp" value="">
             </td>
+            </table>
+          </div>
 
 
-
-
-        <!--Tabla de datos en unas horas-->
-            <td class="contenido-horas">
-              <table>
+            <div class="horas"><p class="tiempo">Próximas horas</p>
+              <div class="contenedor-horas">
+               <table>
                 <tr>
                   <td class="tabla-horas">Ahora</td>
                   <td class="tabla-horas">18:00</td>
@@ -114,12 +106,10 @@ if(isset($_REQUEST['CodigoPostal'])){
                 </tr>
               
             </table>
-          </td>
-
-
-          <!--Tabla contenido de los proximos dias y su slider-->
-            <td class="contenido-dias">
-          <div id="dias">
+            </div>
+            </div>
+            <div class="dias"><p class="tiempo">Próximas 5 días</p>
+              <div id="dias">
               <div class="slider">
             <ul>
             <li>
@@ -214,11 +204,33 @@ if(isset($_REQUEST['CodigoPostal'])){
 
      </div>
   </div>
+            </div>
+          
+          <tr>
 
 
 
 
+            <!--Tabla de datos actuales-->
+            
 
+
+
+
+        <!--Tabla de datos en unas horas-->
+            <td class="contenido-horas">
+             
+          </td>
+
+
+          <!--Tabla contenido de los proximos dias y su slider-->
+            <td class="contenido-dias">
+          
+
+
+
+
+</td></tr></div>
 
 
 <!--div del ranking(tabla en ajax.js)-->

@@ -1,3 +1,4 @@
+
 body{
 	background-image: url("../img/Background.png");
 	background-size:cover;
@@ -24,7 +25,16 @@ width: 618px;
 height: 158px;
 }
 
-
+p.tiempo{
+width: 46px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+align-self: center;
+}
 p.Texto1{
 width: 527px;
 height: 48px;
@@ -114,13 +124,14 @@ line-height: 24px;
 /*css pagina de temperatura*/
 /*Las dos cajas, ranking y datos*/
 div.columna1{
+
 width: 1114px;
 height: 530px;
 box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 background-color: rgba(48, 108, 119, 0.7);
 }
 div.columna2{
-margin-left: 30px;
+margin-left: 2%;
 width: 418px;
 height: 530px;
 box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -267,19 +278,27 @@ tr.ranking{
 
 
 /*Datos actuales*/
-td.ahora{
-padding-right: 40px;
+div.ahora{
+
 text-align: center;
 width: 200px;
-height: 24px;
+height: 230px;
 color: #ffffff;
 font-family: Muli;
 font-size: 16px;
 font-weight: 400;
 line-height: 24px;
-border-right: #ffffff 1px solid;
-}
+border-right:solid 1px #ffffff;
+float: left;
+margin-left: -2%;
 
+}
+p.tiempo{
+	width: 100%;
+}
+div.contenedor-horas{
+	margin-top: 8.5%;
+}
 td.contenido-ahora{
 align-items: left;
 width: 100px;
@@ -289,7 +308,9 @@ font-family: Muli;
 font-size: 16px;
 font-weight: 400;
 line-height: 24px;
-border-right: #ffffff 1px solid;
+padding-bottom: 50px;
+margin-top: 20px;
+
 }
 div.icono{
 position: absolute;
@@ -323,7 +344,7 @@ line-height: 24px;
 
 /*tablas de horas y dias*/
 
-td.dias{
+div.dias{
 text-align: center;
 width: 300px;
 height: 24px;
@@ -332,18 +353,21 @@ font-family: Muli;
 font-size: 16px;
 font-weight: 400;
 line-height: 24px;
+float: left;
+
 }
 
-td.horas{
+div.horas{
 text-align: center;
 width: 430px;
-height: 24px;
+height: 230px;
 color: #ffffff;
 font-family: Muli;
 font-size: 16px;
 font-weight: 400;
 line-height: 24px;
-border-right: #ffffff 1px solid;
+float: left;
+border-right:solid 1px #ffffff;
 }
 
 td.contenido-dias{
@@ -366,7 +390,7 @@ font-family: Muli;
 font-size: 16px;
 font-weight: 400;
 line-height: 24px;
-border-right: #ffffff 1px solid;
+
 }
 
 td.tabla-horas{
@@ -505,19 +529,19 @@ div.col-md-4{
 	margin-left: -25%;
 }
 div.columna1{
-	
+	margin-left: -15%;
 	width: 130%;
-	height: 792px;
+	height: 810px;
 }
 span.Lupa{
-	margin-left:60%;
+	margin-left:55%;
 	font-size: 0.6rem;
 	color: #ffffff;
 }
 div.columna2{
 	position: absolute;
 	margin-top: 245%;
-	margin-left: -1%;
+	margin-left: -14%;
 width: 118%;
 box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 background-color: rgba(48, 108, 119, 0.7);
@@ -596,5 +620,63 @@ font-family: Muli;
 font-size: 18px;
 font-weight: 700;
 line-height: 24px;
+}
+div.ahora{
+margin-top: -10%;
+text-align: center;
+width: 370px;
+height: 230px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+border-bottom:solid 1px #ffffff;
+border-right: 0px;
+float: none;
+
+
+
+}
+td.contenido-ahora{
+align-items: center;
+width: 100px;
+height: 240px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+
+padding-left: 100%;
+
+}
+div.horas{
+text-align: center;
+width: 370px;
+height: 230px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+float: none;
+border-right: 0px;
+border-bottom:solid 1px #ffffff;
+}
+div.dias{
+text-align: center;
+width: 370px;
+height: 24px;
+color: #ffffff;
+font-family: Muli;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+float: left;
+
+}
+div.slider{
+	margin-left: -4%
 }
 }
